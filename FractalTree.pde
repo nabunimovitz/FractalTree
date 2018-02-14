@@ -1,36 +1,21 @@
 private double fractionLength = .8; 
 private int smallestBranch = 10; 
 private double branchAngle = .5;  
-private int season =4;
+
+private boolean winter = false;
+private boolean spring = false;
+private boolean summer = false;
+private boolean fall = false;
 
 public void setup() 
 {   
 	size(640,480);    
 	noLoop(); 
 } 
+
 public void draw() 
 {   
-	if(season == 1) //winter
-	{
-		background(255);
-		stroke(0,0,255);
-	}
-	if(season ==2) //spring
-	{
-		background(188, 143,143);
-		stroke(34,139,34);
-	}
-	if(season == 3) //summer
-	{
-		background(135,206,235);
-		stroke(255,255,51);
-	}
-	if(season == 4) //autumn
-	{
-		background(255, 165, 0);
-		stroke(139,69,19);
-	}
-	   
+
 	line(320,480,320,380);   
 	drawBranches(320,380,100,3*Math.PI/2); 
 } 
@@ -38,23 +23,59 @@ public void keyPressed()
 {
 	if(key == 'w') //winter
 	{
-		season = 1;
+		winter = true;
+		spring = false;
+		summer = false;
+		fall = false;
+		System.out.println(winter);
 	}
 	if(key == 's') //spring
 	{
-		season = 2;
+		winter = false;
+		spring = true;
+		summer = false;
+		fall = false;
+		System.out.println(winter);
 	}
 	if(key == 'd') //summer
 	{
-		season = 3;
+		winter = false;
+		spring = false;
+		summer = true;
+		fall = false;
 	}
 	if(key == 'a') //fall
 	{
-		season = 4;
+		winter = false;
+		spring = false;
+		summer = false;
+		fall = true;
 	}
 }
 public void drawBranches(int x,int y, double branchLength, double angle) 
 {   
+	if(winter==true) //winter
+	{
+		background(255);
+		stroke(0,0,255);
+	}
+	if(spring==true) //spring
+	{
+		background(188, 143,143);
+		stroke(34,139,34);
+	}
+	if(summer==true) //summer
+	{
+		background(135,206,235);
+		stroke(255,255,51);
+	}
+	if(fall==true) //fall
+	{
+		background(255, 165, 0);
+		stroke(139,69,19);
+	}
+	   
+
 	double angle1=angle+branchAngle;
 	double angle2=angle-branchAngle;
 
