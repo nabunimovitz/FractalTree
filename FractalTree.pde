@@ -10,12 +10,31 @@ private boolean fall = false;
 public void setup() 
 {   
 	size(640,480);    
-	noLoop(); 
+	//noLoop(); 
 } 
 
 public void draw() 
 {   
-
+	if(winter==true) //winter
+	{
+		background(255);
+		stroke(135,206,250);
+	}
+	if(spring==true) //spring
+	{
+		background(255, 192,203);
+		stroke(34,139,34);
+	}
+	if(summer==true) //summer
+	{
+		background(135,206,235);
+		stroke(255,255,51);
+	}
+	if(fall==true) //fall
+	{
+		background(245, 155, 0);
+		stroke(139,69,19);
+	}
 	line(320,480,320,380);   
 	drawBranches(320,380,100,3*Math.PI/2); 
 } 
@@ -54,26 +73,7 @@ public void keyPressed()
 }
 public void drawBranches(int x,int y, double branchLength, double angle) 
 {   
-	if(winter==true) //winter
-	{
-		background(255);
-		stroke(0,0,255);
-	}
-	if(spring==true) //spring
-	{
-		background(188, 143,143);
-		stroke(34,139,34);
-	}
-	if(summer==true) //summer
-	{
-		background(135,206,235);
-		stroke(255,255,51);
-	}
-	if(fall==true) //fall
-	{
-		background(255, 165, 0);
-		stroke(139,69,19);
-	}
+
 	   
 
 	double angle1=angle+branchAngle;
